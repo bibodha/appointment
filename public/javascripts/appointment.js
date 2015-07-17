@@ -1,77 +1,83 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/*!*****************!*\
+  !*** multi app ***!
+  \*****************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	module.exports = __webpack_require__(/*! ./public/javascripts/appointment.jsx */1);
 
 
 /***/ },
 /* 1 */
+/*!********************************************!*\
+  !*** ./public/javascripts/appointment.jsx ***!
+  \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-
+	
 	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
+	
 	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-
+	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
+	
 	var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-
+	
 	var AppointmentForm = (function (_React$Component) {
 	    function AppointmentForm() {
 	        _classCallCheck(this, AppointmentForm);
-
+	
 	        if (_React$Component != null) {
 	            _React$Component.apply(this, arguments);
 	        }
 	    }
-
+	
 	    _inherits(AppointmentForm, _React$Component);
-
+	
 	    _createClass(AppointmentForm, [{
 	        key: "render",
 	        value: function render() {
@@ -145,16 +151,16 @@
 	                numOfPeople = React.findDOMNode(this.refs.numOfPeople).value.trim(),
 	                phone = React.findDOMNode(this.refs.phone).value.trim(),
 	                date = React.findDOMNode(this.refs.date).value.trim();
-
+	
 	            if (!name || !date || !numOfPeople || !phone) {
 	                toastr.error("Please fill in all the fields", "Missing fields");
 	                return;
 	            }
-
+	
 	            this.props.addAppointment({
 	                name: name, date: date, numOfPeople: numOfPeople, phone: phone
 	            });
-
+	
 	            React.findDOMNode(this.refs.name).value = "";
 	            React.findDOMNode(this.refs.date).value = "";
 	            React.findDOMNode(this.refs.numOfPeople).value = "";
@@ -162,21 +168,21 @@
 	            return;
 	        }
 	    }]);
-
+	
 	    return AppointmentForm;
 	})(React.Component);
-
+	
 	var Appointment = (function (_React$Component2) {
 	    function Appointment() {
 	        _classCallCheck(this, Appointment);
-
+	
 	        if (_React$Component2 != null) {
 	            _React$Component2.apply(this, arguments);
 	        }
 	    }
-
+	
 	    _inherits(Appointment, _React$Component2);
-
+	
 	    _createClass(Appointment, [{
 	        key: "render",
 	        value: function render() {
@@ -225,26 +231,26 @@
 	            );
 	        }
 	    }]);
-
+	
 	    return Appointment;
 	})(React.Component);
-
+	
 	var AppointmentList = (function (_React$Component3) {
 	    function AppointmentList() {
 	        _classCallCheck(this, AppointmentList);
-
+	
 	        if (_React$Component3 != null) {
 	            _React$Component3.apply(this, arguments);
 	        }
 	    }
-
+	
 	    _inherits(AppointmentList, _React$Component3);
-
+	
 	    _createClass(AppointmentList, [{
 	        key: "render",
 	        value: function render() {
 	            var _this = this;
-
+	
 	            return React.createElement(
 	                "table",
 	                { className: "table table-striped table-hover" },
@@ -291,21 +297,21 @@
 	            );
 	        }
 	    }]);
-
+	
 	    return AppointmentList;
 	})(React.Component);
-
+	
 	var DeleteModal = (function (_React$Component4) {
 	    function DeleteModal() {
 	        _classCallCheck(this, DeleteModal);
-
+	
 	        if (_React$Component4 != null) {
 	            _React$Component4.apply(this, arguments);
 	        }
 	    }
-
+	
 	    _inherits(DeleteModal, _React$Component4);
-
+	
 	    _createClass(DeleteModal, [{
 	        key: "render",
 	        value: function render() {
@@ -365,21 +371,21 @@
 	            );
 	        }
 	    }]);
-
+	
 	    return DeleteModal;
 	})(React.Component);
-
+	
 	var EditModal = (function (_React$Component5) {
 	    function EditModal() {
 	        _classCallCheck(this, EditModal);
-
+	
 	        if (_React$Component5 != null) {
 	            _React$Component5.apply(this, arguments);
 	        }
 	    }
-
+	
 	    _inherits(EditModal, _React$Component5);
-
+	
 	    _createClass(EditModal, [{
 	        key: "render",
 	        value: function render() {
@@ -458,22 +464,22 @@
 	            );
 	        }
 	    }]);
-
+	
 	    return EditModal;
 	})(React.Component);
-
+	
 	var AppointmentBox = (function (_React$Component6) {
 	    function AppointmentBox(props) {
 	        _classCallCheck(this, AppointmentBox);
-
+	
 	        _get(Object.getPrototypeOf(AppointmentBox.prototype), "constructor", this).call(this, props);
 	        this.state = {
 	            appointments: []
 	        };
 	    }
-
+	
 	    _inherits(AppointmentBox, _React$Component6);
-
+	
 	    _createClass(AppointmentBox, [{
 	        key: "showNotification",
 	        value: function showNotification(appointment) {
@@ -483,7 +489,7 @@
 	        key: "addAllNotifications",
 	        value: function addAllNotifications() {
 	            var _this2 = this;
-
+	
 	            _.each(this.state.appointments, function (appointment) {
 	                var dateInMilli = Date.parse(appointment.date);
 	                setTimeout(function () {
@@ -495,7 +501,7 @@
 	        key: "addOneNotification",
 	        value: function addOneNotification(appointment) {
 	            var _this3 = this;
-
+	
 	            var dateInMilli = Date.parse(appointment.date);
 	            setTimeout(function () {
 	                _this3.showNotification(appointment);
@@ -510,7 +516,7 @@
 	        key: "getAppointments",
 	        value: function getAppointments() {
 	            var _this4 = this;
-
+	
 	            $.ajax({
 	                url: "/getAppointments",
 	                type: "GET",
@@ -530,9 +536,9 @@
 	        key: "deleteItem",
 	        value: function deleteItem(e) {
 	            var _this5 = this;
-
+	
 	            e.stopPropagation();
-
+	
 	            var targetId = $("#id-delete").val();
 	            $.ajax({
 	                url: "/deleteAppointment",
@@ -559,7 +565,7 @@
 	            var item = _.find(this.state.appointments, function (item) {
 	                return item._id === id;
 	            });
-
+	
 	            $("#id-edit").val(item._id);
 	            $("#name-edit").val(item.name);
 	            $("#numOfPeople-edit").val(item.numOfPeople);
@@ -579,7 +585,7 @@
 	            var item = _.find(this.state.appointments, function (item) {
 	                return item._id === id;
 	            });
-
+	
 	            $("#id-delete").val(item._id);
 	            $("#deleteModal").modal("show");
 	        }
@@ -587,7 +593,7 @@
 	        key: "addAppointment",
 	        value: function addAppointment(data) {
 	            var _this6 = this;
-
+	
 	            $.ajax({
 	                url: "/addAppointment",
 	                dataType: "json",
@@ -611,7 +617,7 @@
 	        key: "editAppointment",
 	        value: function editAppointment() {
 	            var _this7 = this;
-
+	
 	            var data = {
 	                id: $("#id-edit").val(),
 	                name: $("#name-edit").val(),
@@ -619,7 +625,7 @@
 	                phone: $("#phone-edit").val(),
 	                date: $("#date-edit").val()
 	            };
-
+	
 	            $.ajax({
 	                url: "/editAppointment",
 	                datatype: "json",
@@ -696,15 +702,15 @@
 	            );
 	        }
 	    }]);
-
+	
 	    return AppointmentBox;
 	})(React.Component);
-
+	
 	React.render(React.createElement(AppointmentBox, null), content);
 	$("#time-input").datetimepicker({
 	    sideBySide: true
 	});
-
+	
 	toastr.options = {
 	    closeButton: true,
 	    debug: false,
@@ -722,7 +728,7 @@
 	    showMethod: "fadeIn",
 	    hideMethod: "fadeOut"
 	};
-
+	
 	$("#calendar").fullCalendar({
 	    header: {
 	        left: "prev,next today",
@@ -752,10 +758,11 @@
 	        });
 	    }
 	});
-
+	
 	$("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
 	    $("#calendar").fullCalendar("render");
 	});
 
 /***/ }
 /******/ ]);
+//# sourceMappingURL=appointment.js.map
